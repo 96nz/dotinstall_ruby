@@ -86,4 +86,21 @@ p colors.size #要素の数
 p colors.sort #並べ替え アルファベット順
 
 
-#配列
+#ハッシュ
+
+# - keyとvalueでなりたつ
+# 例 taguchi 200
+# koji 600 
+# scores = {"taguchi" => 200, "koji" => 600} #文字列
+# scores = {:taguchi => 200, :koji => 600} #シンボル
+scores = {taguchi: 200, koji: 600} #シンボルの簡略系
+
+p scores[:taguchi]
+scores[:koji] = 300
+p scores[:koji]
+
+p scores.size
+p scores.keys
+p scores.values
+p scores.has_key?(:taguchi) #田口があるかどうか？
+
