@@ -92,8 +92,10 @@ p colors.sort #並べ替え アルファベット順
 # 例 taguchi 200
 # koji 600 
 # scores = {"taguchi" => 200, "koji" => 600} #文字列
-# scores = {:taguchi => 200, :koji => 600} #シンボル
+# scores = {:taguchi => 200, :koji => 600} #シンボルオブジェクト（動作が高速）
 scores = {taguchi: 200, koji: 600} #シンボルの簡略系
+
+p scores
 
 p scores[:taguchi]
 scores[:koji] = 300
@@ -104,3 +106,73 @@ p scores.keys
 p scores.values
 p scores.has_key?(:taguchi) #田口があるかどうか？
 
+# lesson10
+
+# 変換
+
+x = 50
+y = "3"
+
+p x + y.to_i #整数 integer
+p x + y.to_f #浮動小数点数 float
+p x.to_s + y #string　文字
+
+
+scores = {taguchi: 200, fkoji: 400}
+
+p scores.to_a #to_aはto alley配列 to_hはハッシュに戻す
+p scores.to_a.to_h #to_aはto alley配列 to_hはハッシュに戻す
+
+#lesson11
+# %記法
+
+puts "hello"
+puts 'hello' #式展開が必要ない場合
+
+puts %Q(hello) #""と同じ意味
+puts %(hello) #""と同じ意味
+puts %q(hello) #''と同じ意味
+
+puts "he\"llo" #\を使うことで"を文字列として認識できる。
+puts 'he\'llo' #式展開が必要ない場合
+
+puts %Q(he"llo)
+puts %(he"llo)
+# puts %q(he'llo)
+
+p ["red", "blue"]
+p ['red', 'blue']
+
+p %W(red blue)
+p %w(red blue)
+
+
+colors2 = %W(red blue)
+
+p colors2[0]
+
+#lesson12　書式付文字列
+
+# %s なら文字列
+# %d なら整数
+# %f 浮動小数点数
+
+p "name: %s" % "taguchi"
+p "name: %10s" % "taguchi"
+p "name: %-10s" % "taguchi"
+
+p "id: %05d, rate: %10.2f" % [355, 3.284] 
+#05と5の違いは空いてる数字を0で埋めるかどうか
+#10.2は全体の桁数.小数点以下の桁数を指定　桁数には小数点マークも含まれる
+
+#printfは書式付のp
+
+printf("name: %10s\n", "taguchi") #\nは改行
+printf("id: %05d, rate: %10.2f\n", 355, 3.284)
+
+#sprintfは文字列を返す
+
+p sprintf("name: %10s\n", "taguchi") #\nは改行
+p sprintf("id: %05d, rate: %10.2f\n", 355, 3.284)
+
+#lesson13
