@@ -175,4 +175,3 @@ printf("id: %05d, rate: %10.2f\n", 355, 3.284)
 p sprintf("name: %10s\n", "taguchi") #\nは改行
 p sprintf("id: %05d, rate: %10.2f\n", 355, 3.284)
 
-#lesson13
